@@ -1,0 +1,40 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+Ribonuclease_3       PF00636.29   105 Q9SP32               -           1909   3.4e-57  191.7   0.0   1   2     2e-32   4.4e-29  101.3   0.0     1   105  1375  1518  1375  1518 0.85 Ribonuclease III domain
+Ribonuclease_3       PF00636.29   105 Q9SP32               -           1909   3.4e-57  191.7   0.0   2   2   4.2e-28   9.1e-25   87.4   0.0     1   105  1594  1707  1594  1707 0.90 Ribonuclease III domain
+Ribonucleas_3_3      PF14622.9    128 Q9SP32               -           1909   1.1e-27   96.8   0.6   1   1   7.3e-18   1.6e-14   54.3   0.0     2   117  1573  1712  1572  1723 0.81 Ribonuclease-III-like
+PAZ                  PF02170.25   132 Q9SP32               -           1909     2e-26   92.8   0.0   1   1   2.2e-29   4.7e-26   91.6   0.0    20   130  1203  1338  1184  1340 0.85 PAZ domain
+Dicer_dimer          PF03368.17    90 Q9SP32               -           1909   1.8e-23   82.5   0.5   1   1     7e-24   1.5e-20   73.2   0.0     1    86   840   928   840   931 0.95 Dicer dimerisation domain
+dsrm                 PF00035.29    67 Q9SP32               -           1909   3.3e-20   72.7   0.1   1   1   3.2e-13   6.9e-10   39.6   0.0     3    67  1834  1904  1832  1904 0.87 Double-stranded RNA binding motif
+Helicase_C           PF00271.34   111 Q9SP32               -           1909   4.3e-17   62.6   0.0   1   1   5.1e-20   1.1e-16   61.2   0.0     2   108   648   765   647   768 0.80 Helicase conserved C-terminal domain
+DND1_DSRM            PF14709.10    80 Q9SP32               -           1909   6.5e-16   58.5   0.1   1   1   7.5e-18   1.6e-14   54.0   0.0     3    79  1832  1904  1830  1905 0.94 double strand RNA binding domain from DEAD END PROTEIN 1
+ResIII               PF04851.18   171 Q9SP32               -           1909   1.6e-13   51.1   0.9   1   1   1.1e-16   2.3e-13   50.6   0.1    16   169   254   415   235   417 0.77 Type III restriction enzyme, res subunit
+DEAD                 PF00270.32   176 Q9SP32               -           1909     2e-11   44.1   0.2   1   1   1.7e-13   3.7e-10   40.0   0.0     3   167   252   413   250   419 0.74 DEAD/DEAH box helicase
+RRM_1                PF00076.25    70 O43347               -            362   4.3e-34  116.3   0.7   1   2   2.5e-20   2.5e-16   59.4   0.0     2    69    23    90    22    91 0.92 RNA recognition motif. (a.k.a. RRM, RBD, or RNP domain)
+RRM_1                PF00076.25    70 O43347               -            362   4.3e-34  116.3   0.7   2   2   5.7e-19   5.6e-15   55.1   0.6     1    67   111   177   111   180 0.93 RNA recognition motif. (a.k.a. RRM, RBD, or RNP domain)
+Cdc6_C               PF09079.14    84 E0SP36               -            406   6.8e-25   87.0   0.7   1   1   2.2e-27   1.1e-23   83.1   0.2     1    83   312   391   312   392 0.96 CDC6, C terminal winged helix domain
+AAA                  PF00004.32   132 E0SP36               -            406   3.5e-08   34.1   1.0   1   1   1.2e-11   5.9e-08   33.3   0.0     1   120    65   204    65   215 0.68 ATPase family associated with various cellular activities (AAA)
+AAA_22               PF13401.9    137 E0SP36               -            406   4.1e-08   33.7   0.7   1   1   1.5e-11   7.1e-08   32.9   0.0     6   129    63   188    58   195 0.81 AAA domain
+UPF0020              PF01170.21   197 G0ECS7               -            345   1.7e-28   99.8   0.0   1   1   2.1e-31   1.4e-27   96.8   0.0     1   195   164   337   164   339 0.92 Putative RNA methylase family UPF0020
+Cons_hypoth95        PF03602.18   182 G0ECS7               -            345   6.8e-06   26.0   0.0   1   1   1.6e-09     1e-05   25.4   0.0    32   128   182   275   172   304 0.79 Conserved hypothetical protein 95
+Methyltransf_11      PF08241.15    96 G0ECS7               -            345   3.8e-05   24.4   0.1   1   1   3.7e-08   0.00024   21.8   0.1     1    96   196   304   196   304 0.70 Methyltransferase domain
+OTCace               PF00185.27   157 E0SPI4               -            316   7.7e-59  198.3   0.0   1   1   1.1e-62   1.1e-58  197.9   0.0     2   156   159   313   158   314 0.99 Aspartate/ornithine carbamoyltransferase, Asp/Orn binding domain
+OTCace_N             PF02729.24   146 E0SPI4               -            316   1.2e-46  158.6   0.0   1   1   3.5e-50   3.4e-46  157.1   0.0     1   146    11   152    11   152 0.97 Aspartate/ornithine carbamoyltransferase, carbamoyl-P binding domain
+Piwi                 PF02171.20   302 O04379               -           1048  2.8e-114  381.5   0.0   1   1  1.5e-117  4.3e-114  381.0   0.0     2   301   677   996   676   997 0.98 Piwi domain
+ArgoN                PF16486.8    143 O04379               -           1048   6.8e-35  120.7   0.0   1   1     6e-38   1.7e-34  119.4   0.0     1   143   190   325   190   325 0.89 N-terminal domain of argonaute
+PAZ                  PF02170.25   132 O04379               -           1048   6.7e-26   91.1   0.1   1   1   4.5e-29   1.3e-25   90.2   0.1    20   130   413   516   391   518 0.88 PAZ domain
+Gly-rich_Ago1        PF12764.10   107 O04379               -           1048   6.9e-24   84.9  20.4   1   1   2.5e-27   6.9e-24   84.9  20.4     1   107    75   172    75   172 0.87 Glycine-rich region of argonaut
+ArgoL1               PF08699.13    51 O04379               -           1048   4.2e-22   77.7   0.0   1   1   3.3e-25   9.3e-22   76.6   0.0     1    51   335   385   335   385 0.94 Argonaute linker 1 domain
+ArgoL2               PF16488.8     47 O04379               -           1048   3.6e-16   59.3   0.0   1   1   3.9e-19   1.1e-15   57.7   0.0     1    47   527   573   527   573 0.98 Argonaute linker 2 domain
+ArgoMid              PF16487.8     84 O04379               -           1048   1.8e-10   41.1   0.1   1   1   1.5e-13   4.3e-10   39.9   0.1     2    80   584   659   583   663 0.96 Mid domain of argonaute
+#
+# Program:         hmmscan
+# Version:         3.3 (Nov 2019)
+# Pipeline mode:   SCAN
+# Query file:      test/test.fasta
+# Target file:     database/Pfam-A.hmm
+# Option settings: hmmscan --domtblout /tmp/1686c060f2d049ab8d45f1bb2f0aadba --notextw --cut_ga --cpu 16 database/Pfam-A.hmm test/test.fasta 
+# Current dir:     /home/andrzej/Desktop/pfam
+# Date:            Fri Aug 19 12:57:29 2022
+# [ok]
