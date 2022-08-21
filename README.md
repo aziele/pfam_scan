@@ -1,6 +1,6 @@
 # pfam_scan
 
-A Python script to identify protein domains in one or more protein sequences. The script uses the HMMER software to scan query protein sequences against the Pfam library of hidden Markov models (HMMs). Searching a protein sequence against the Pfam library of HMMs allows you to find out the domain architecture of the protein, and thus can provide insight into the function of the protein.
+A Python script to identify protein domains in one or more protein sequences. The script uses the HMMER software to scan query protein sequences against the Pfam library of hidden Markov models (HMMs). Searching a protein sequence against the Pfam library of HMMs allows you to find out the domain architecture of the protein and thus can provide insight into protein's function.
 
 ## Requirements
 
@@ -9,6 +9,8 @@ A Python script to identify protein domains in one or more protein sequences. Th
    > If you can run `hmmscan -h` without getting an error, you should be good to go.
 
 ### Prepare library of Pfam HMMs
+
+You will need to have a local copy of the Pfam's HMMs library. If you are using bash, you can follow these steps:
 
 1. Download two files from the [Pfam FTP site](ftp://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/):
 
@@ -52,8 +54,7 @@ The script is easy to run. Just give it an input FASTA-format file containing yo
 ## Full usage
 
 ```
-usage: pfam_scan.py [-out OUT] [-outfmt {csv,json}] [-evalue EVALUE] [-cpu CPU]
-                    [-h] [-v]
+usage: pfam_scan.py [-out OUT] [-outfmt {csv,json}] [-evalue EVALUE] [-cpu CPU] [-h] [-v]
                     fasta_file pfam_dir
 
 pfam_scan.py v.1.0: search a FASTA file against a library of Pfam HMMs
@@ -65,11 +66,11 @@ Positional arguments (required):
 Optional arguments:
   -out OUT            Output file name, otherwise send to STDOUT
   -outfmt {csv,json}  Output format [default: csv]
-  -evalue EVALUE      E-value threshold for domains. By default, this option is
-                      disabled. Instead, the tool uses the bit score gathering
-                      (GA) threshold recommended by Pfam
-  -cpu CPU            Number of parallel CPU workers to use for multithreads
-                      (hmmscan) [default: 16]
+  -evalue EVALUE      E-value threshold for a predicted domain. By default, this option is
+                      disabled and the tool uses the bit score gathering (GA) threshold
+                      recommended by Pfam
+  -cpu CPU            Number of parallel CPU workers to use for multithreads (hmmscan)
+                      [default: 16]
 
 Other arguments:
   -h, --help          Print this help message and exit
@@ -83,10 +84,10 @@ Positional arguments:
 
 Optional arguments:
 
-- `out`: output file name. If not provided, the results of pfam_scan will be printed to the screen.
-- `outfmt`: output format (csv or json)
-- `evalue`: E-value domain cutoff for Pfam searches (default: Pfam defined). The E-value is the expected number of false positives (non-homologous sequence regions) that scored this well or better. The E-value is a measure of statistical significance of the domain match. The lower the E-value, the more significant the domain match. Typically, consider domains with E-values < 10<sup>−3</sup> to be significant domain matches. However, E-values are dependent on the size of the database searched, so Pfam uses its own system for maintaining Pfam models, based on a bit score, which is independent of the size of the database searched. For each Pfam family, Pfam curators set a bit score gathering (GA) threshold by hand, such that all sequences scoring at or above this threshold appear in the full alignment. The threshold is usually conservative, so that no known false positives appear in the family. Setting your own E-value threshold is possible, and may allow the presence of more distantly related domains to be found on your sequence; however, interpreting such hits requires caution.
-- `cpu`: the number of parallel worker threads used by hmmscan. By default, this is the number of CPU cores in your machine.
+- `-out`: output file name. If not provided, the results of pfam_scan will be printed to the screen.
+- `-outfmt`: output format (csv or json)
+- `-evalue`: E-value domain cutoff for Pfam searches (default: Pfam defined). The E-value is the expected number of false positives (non-homologous sequence regions) that scored this well or better. The E-value is a measure of statistical significance of the domain match. The lower the E-value, the more significant the domain match. Typically, consider domains with E-values < 10<sup>−3</sup> to be significant domain matches. However, E-values are dependent on the size of the database searched, so Pfam uses its own system for maintaining Pfam models, based on a bit score, which is independent of the size of the database searched. For each Pfam family, Pfam curators set a bit score gathering (GA) threshold by hand, such that all sequences scoring at or above this threshold appear in the full alignment. The threshold is usually conservative, so that no known false positives appear in the family. Setting your own E-value threshold is possible, and may allow the presence of more distantly related domains to be found on your sequence; however, interpreting such hits requires caution.
+- `-cpu`: the number of parallel worker threads used by hmmscan. By default, this is the number of CPU cores in your machine.
 
 ## Output
 
@@ -98,7 +99,7 @@ The output format is CSV or JSON. The output includes the following information,
 | 1 | `seq_id` | Sequence identifier of a query protein sequence |
 | 2 | `aln_start` | Start position of the reported region in the protein sequence that aligns to the HMM profile |
 | 3 | `aln_end` | End position |
-| 4 | `env_start` | Most probable start position of the domain on the protein sequence. The envelope coordinates delineate the region on the sequence where the domain match has been probabilistically determined to lie. The envelope is almost always a little wider than alignment coordinates. |
+| 4 | `env_start` | Most probable start position of the domain on the protein sequence. The envelope coordinates delineate the region on the sequence where the domain match has been probabilistically determined to lie. The envelope is almost always a little wider than the alignment coordinates. |
 | 5 | `env_end` | Most probable end position of the domain on the protein sequence. |
 | 6 | `hmm_acc` | Domain accession number |
 | 7 | `hmm_name` | Domain name |
@@ -110,12 +111,12 @@ The output format is CSV or JSON. The output includes the following information,
 | 13 | `evalue` | Evalue of a domain match |
 | 14 | `significance` | Significance of a domain match (0 or 1). The significance is 1 if the score of the domain is greater than or equal to the [Pfam's gathering threshold](https://pfam-docs.readthedocs.io/en/latest/glossary.html#gathering-threshold-ga) for the matching domain, 0 otherwise. |
 | 15 | `clan` | A collection of related Pfam domains. The relationship is defined by Pfam based on the similarity of sequence, tertiary structure or HMM profile. |
-> Of note, when a protein sequence region has overlapping matches to more than one domains within the same clan, only the best scoring domain match is shown.
+> Of note, when a protein sequence region has overlapping matches to more than one domain within the same clan, only the best scoring domain match is shown.
 
 
 ### CSV output
 
-```
+```csv
 aln_start,aln_end,env_start,env_end,hmm_acc,hmm_name,type,hmm_start,hmm_end,hmm_length,score,evalue,significance,clan
 O43347,23,90,22,91,PF00076.25,RRM_1,Domain,2,69,70,59.4,2.5e-16,1,CL0221
 O43347,111,177,111,180,PF00076.25,RRM_1,Domain,1,67,70,55.1,5.6e-15,1,CL0221
