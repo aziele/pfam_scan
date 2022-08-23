@@ -94,10 +94,12 @@ def validate_args(parser: argparse.ArgumentParser) -> argparse.Namespace:
     fasta_path = pathlib.Path(args.fasta_file)
     if not fasta_path.exists():
         parser.error(f'The input file does not exist: {fasta_path}')
+
     # Check if the Pfam database directory exists.
     dir_path = pathlib.Path(args.pfam_dir)
     if not dir_path.exists():
         parser.error(f'The Pfam directory does not exist: {dir_path}')
+
     # Find the Pfam HMM database in the Pfam directory.
     dir_files = list(dir_path.iterdir())
     db_paths = [f for f in dir_files if f.suffix == '.hmm']
@@ -106,6 +108,7 @@ def validate_args(parser: argparse.ArgumentParser) -> argparse.Namespace:
     if (n := len(db_paths)) > 1:
         parser.error(f'Found {n} HMM files in {dir_path}, expect one.')
     db_path = db_paths[0]
+
     # Make sure we have all binaries for the HMM database.
     for suffix in ['.h3f', '.h3i', '.h3m', '.h3p', '.dat']:
         path = dir_path / (db_path.name + suffix)
@@ -292,14 +295,17 @@ def main():
     parser = get_parser()
     args = validate_args(parser)
     pfam_data = read_pfam_data(args.dat)
+    
     # Run hmmscan
     process = run_hmmscan(args)
     if process.returncode:
         print(f'Error running hmmscan: {process.stderr.strip()}')
         sys.exit(1)
+    
     # Get results
     results = parse_hmmscan_output(args.temp_file, pfam_data)
     results = resolve_overlapping_domains(results)
+    
     # Write/show results in csv or json format.
     if args.outfmt == 'csv':
         csv_out = csv.writer(args.out)
@@ -314,6 +320,7 @@ def main():
         for seq_id, domains in results.items():
             results[seq_id] = [domain._asdict() for domain in domains]
         json.dump(results, args.out, indent=2)
+    
     # Remove a temporary file containing hmmscan output.
     args.temp_file.unlink()
 
